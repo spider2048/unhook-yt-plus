@@ -53,15 +53,15 @@ hide the usual clutter; the differences are in channels, profiles and trust.
 
 | Feature | Unhook | unhook-yt |
 | --- | --- | --- |
-| Hide home feed, shorts, recommendations, comments, live chat | yes | yes |
-| Open source | no | yes |
-| Price | free tier plus premium | free |
-| Channel blocking | premium (paid) | free, core feature |
-| Block from a video card or context menu | limited | yes, one click |
-| Multiple blocklist profiles with per-surface control | no | yes |
-| Block playlists owned by a channel | no | yes |
-| Captcha-locked settings against impulsive unblocking | no | yes, optional |
-| Per-channel analytics and channel time blocking | no | planned |
+| Hide home feed, shorts, recommendations, comments, live chat | ✅ | ✅ |
+| Open source | ❌ | ✅ |
+| Price | free tier plus premium | ✅ free |
+| Channel blocking | 💰 premium (paid) | ✅ free, core feature |
+| Block from a video card or context menu | ❌ | ✅ one click |
+| Multiple blocklist profiles with per-surface control | ❌ | ✅ |
+| Block playlists owned by a channel | ❌ | ✅ |
+| Captcha-locked settings against impulsive unblocking | ❌ | ✅ optional |
+| Per-channel analytics and channel time blocking | ❌ | ⏳ planned |
 
 ## Install
 
@@ -95,6 +95,9 @@ Actions workflow that runs the tests, packs a signed `.crx` and attaches it
 with an unpacked zip to a GitHub release.
 
 ## Notes
+
+❗ YouTube changes its page structure often, so selectors may occasionally
+need updates; the extension fails quietly rather than breaking your browsing.
 
 This project is not affiliated with YouTube or Unhook. YouTube changes its
 page structure often, so selectors may occasionally need updates; the
