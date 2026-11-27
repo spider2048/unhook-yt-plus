@@ -1,0 +1,15 @@
+{
+  "name": "youtube-channel-blocker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Chrome extension that hides blocked YouTube channels on the home feed and stops their videos.",
+  "scripts": {
+    "test": "node --test tests/unit/*.test.js",
+    "test:e2e": "node tests/e2e.mjs",
+    "icons": "python3 scripts/make-icons.py"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.57.0"
+  }
+}
