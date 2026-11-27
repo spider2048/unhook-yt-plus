@@ -1,7 +1,8 @@
 # unhook-yt
 
 A Chrome extension that makes YouTube calmer and gives you real control over
-channels. It combines the "hide the noise" toggles you know from Unhook with a
+channels. It combines the "hide the noise" toggles you know from
+[Unhook](https://unhook.app/) with a
 genuinely free, open source channel blocker, all in one place.
 
 Everything runs locally in your browser. There are no accounts, no servers and
@@ -55,17 +56,17 @@ The extension collects nothing and reports nothing.
 - Your blocklists, toggles and settings live in your browser's local storage
 - The only things it reads are the YouTube pages you already have open
 
-For comparison, Unhook's site states it uses Google Analytics to analyze
+For comparison, [Unhook](https://unhook.app/)'s site states it uses Google Analytics to analyze
 traffic and records your user agent when you send feedback. unhook-yt has no
 such channels by design, and because it is open source you do not have to
 take our word for it.
 
 ## How it compares
 
-A quick side by side with Unhook, based on its public feature list. Both tools
+A quick side by side with [Unhook](https://unhook.app/), based on its public feature list. Both tools
 hide the usual clutter; the differences are in channels, profiles and trust.
 
-| Feature | Unhook | unhook-yt |
+| Feature | [Unhook](https://unhook.app/) | unhook-yt |
 | --- | --- | --- |
 | Hide home feed, shorts, recommendations, comments, live chat | ✅ | ✅ |
 | Open source | ❌ | ✅ |
@@ -76,6 +77,7 @@ hide the usual clutter; the differences are in channels, profiles and trust.
 | Block playlists owned by a channel | ❌ | ✅ |
 | Captcha-locked settings against impulsive unblocking | ❌ | ✅ optional |
 | Per-channel analytics and channel time blocking | ❌ | ⏳ planned |
+| Google Analytics and trackers | ✅ uses Google Analytics | ❌ none |
 
 ## Install
 
@@ -113,6 +115,6 @@ with an unpacked zip to a GitHub release.
 ❗ YouTube changes its page structure often, so selectors may occasionally
 need updates; the extension fails quietly rather than breaking your browsing.
 
-This project is not affiliated with YouTube or Unhook. YouTube changes its
+This project is not affiliated with YouTube or [Unhook](https://unhook.app/). YouTube changes its
 page structure often, so selectors may occasionally need updates; the
 extension fails quietly rather than breaking your browsing.
