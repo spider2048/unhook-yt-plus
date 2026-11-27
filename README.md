@@ -46,6 +46,20 @@ Grouped into three cards, with a per-card master dropdown:
   an unlock timer and a cooldown on wrong attempts. There is no reset path;
   that is the point.
 
+## Privacy
+
+The extension collects nothing and reports nothing.
+
+- No analytics, no Google Analytics, no telemetry of any kind
+- No requests leave your browser: there is no network code at all
+- Your blocklists, toggles and settings live in your browser's local storage
+- The only things it reads are the YouTube pages you already have open
+
+For comparison, Unhook's site states it uses Google Analytics to analyze
+traffic and records your user agent when you send feedback. unhook-yt has no
+such channels by design, and because it is open source you do not have to
+take our word for it.
+
 ## How it compares
 
 A quick side by side with Unhook, based on its public feature list. Both tools
@@ -55,8 +69,8 @@ hide the usual clutter; the differences are in channels, profiles and trust.
 | --- | --- | --- |
 | Hide home feed, shorts, recommendations, comments, live chat | ✅ | ✅ |
 | Open source | ❌ | ✅ |
-| Price | free tier plus premium | ✅ free |
-| Channel blocking | 💰 premium (paid) | ✅ free, core feature |
+| Price | ✅ free | ✅ free |
+| Channel blocking | ❌ not offered | ✅ free, core feature |
 | Block from a video card or context menu | ❌ | ✅ one click |
 | Multiple blocklist profiles with per-surface control | ❌ | ✅ |
 | Block playlists owned by a channel | ❌ | ✅ |
