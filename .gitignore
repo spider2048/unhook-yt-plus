@@ -1,3 +1,6 @@
 node_modules/
 demo-shots/
 AGENTS.md
+bin/
+*.crx
+*.pem
