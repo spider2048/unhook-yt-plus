@@ -1,0 +1,77 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Unit tests
+        run: |
+          npm ci
+          npm test
+
+      - name: Stage extension for packaging
+        run: |
+          mkdir pack
+          cp manifest.json pack/
+          cp -r src pack/src
+
+      - name: Pack CRX
+        env:
+          CRX_KEY: ${{ secrets.CRX_PRIVATE_KEY }}
+        run: |
+          set -e
+          CHROME=""
+          for c in google-chrome-stable google-chrome chromium-browser chromium; do
+            if command -v "$c" >/dev/null 2>&1; then CHROME="$c"; break; fi
+          done
+          [ -n "$CHROME" ] || { echo "no chrome/chromium binary on runner"; exit 1; }
+          KEYARG=""
+          if [ -n "$CRX_KEY" ]; then
+            echo "$CRX_KEY" > key.pem
+            KEYARG="--pack-extension-key=key.pem"
+          fi
+          "$CHROME" --no-sandbox --disable-gpu --user-data-dir=/tmp/chrome-pack \
+            --pack-extension=pack $KEYARG 2>/dev/null || \
+          "$CHROME" --no-sandbox --disable-gpu --user-data-dir=/tmp/chrome-pack \
+            --pack-extension=pack $KEYARG
+          test -f pack.crx
+          test -s pack.crx
+
+      - name: Zip unpacked copy
+        run: |
+          cd pack
+          zip -qr ../unhook-yt-${GITHUB_REF_NAME}.zip .
+          cd ..
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            "pack.crx#unhook-yt-${GITHUB_REF_NAME}.crx" \
+            "unhook-yt-${GITHUB_REF_NAME}.zip#unhook-yt-${GITHUB_REF_NAME}.zip (unpacked)" \
+            --title "unhook-yt ${GITHUB_REF_NAME}" \
+            --notes "Automated release. Install the .crx via chrome://extensions (developer mode) or load the .zip unpacked."
+
+      - name: Upload signing key artifact (private repo only)
+        if: always() && hashFiles('pack.pem') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: crx-signing-key
+          path: pack.pem
+          retention-days: 1
