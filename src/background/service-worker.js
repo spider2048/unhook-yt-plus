@@ -37,7 +37,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
       }]
     });
   }
-  console.info("[channel-blocker] installed:", details.reason);
+  console.info("[unhook-yt-plus] installed:", details.reason);
 });
 
 chrome.action.onClicked.addListener(() => {

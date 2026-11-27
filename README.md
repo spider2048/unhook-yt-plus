@@ -1,4 +1,4 @@
-# unhook-yt
+# unhook-yt-plus
 
 A Chrome extension that makes YouTube calmer and gives you real control over
 channels. It combines the "hide the noise" toggles you know from
@@ -82,7 +82,7 @@ hide the usual clutter; the differences are in channels, profiles and trust.
 ## Install
 
 1. Download the zip from the
-   [releases page](https://github.com/spider2048/unhook-yt/releases) and
+   [releases page](https://github.com/spider2048/unhook-yt-plus/releases) and
    unzip it somewhere permanent.
 2. Open `chrome://extensions` (or `brave://extensions`).
 3. Turn on Developer mode, click "Load unpacked" and select the unzipped

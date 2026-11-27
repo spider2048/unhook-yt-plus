@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Channel Blocker for YouTube",
+  "version": "0.1.0",
+  "description": "Hide blocked channels from the YouTube home feed and stop their videos from playing.",
+  "minimum_chrome_version": "111",
+  "permissions": ["storage", "contextMenus"],
+  "host_permissions": ["https://www.youtube.com/*", "https://m.youtube.com/*"],
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "action": {
+    "default_title": "Channel Blocker settings"
+  },
+  "options_page": "src/options/options.html",
+  "icons": {
+    "16": "src/icons/icon16.png",
+    "32": "src/icons/icon32.png",
+    "48": "src/icons/icon48.png",
+    "128": "src/icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://m.youtube.com/*"],
+      "js": ["src/content/main-world.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://www.youtube.com/*", "https://m.youtube.com/*"],
+      "js": [
+        "src/shared/matching.js",
+        "src/shared/profiles.js",
+        "src/shared/behavior.js",
+        "src/content/behaviors-site.js",
+        "src/content/behaviors-watch.js",
+        "src/content/behaviors-extra.js",
+        "src/content/blocker.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/blocked/blocked.html"],
+      "matches": ["https://www.youtube.com/*", "https://m.youtube.com/*"]
+    }
+  ]
+}

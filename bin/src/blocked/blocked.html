@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Channel blocked</title>
+    <link rel="stylesheet" href="../shared/theme.css">
+    <link rel="stylesheet" href="blocked.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="card blocked">
+        <p class="eyebrow">Channel Blocker</p>
+        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <circle cx="32" cy="32" r="27" fill="none" stroke="#6cb2ff" stroke-width="2.5" opacity="0.45"></circle>
+          <path d="M26 21l17 11-17 11z" fill="#e9ecf1"></path>
+          <path d="M14 50L50 14" stroke="#ff8a8a" stroke-width="5" stroke-linecap="round"></path>
+        </svg>
+        <h1>This channel is blocked</h1>
+        <p class="lede">
+          <strong id="channel">A blocked channel</strong> is on your blocked list, so the video was
+          not played.
+        </p>
+        <p class="meta" id="meta" hidden></p>
+        <div class="actions">
+          <button type="button" class="primary" id="back">Go back</button>
+          <a class="button ghost" href="https://www.youtube.com/">YouTube home</a>
+          <a class="button ghost" href="../options/options.html">Manage blocked list</a>
+        </div>
+        <p class="hint">
+          The blocked list is locked behind a captcha, so changing it takes a moment on purpose.
+        </p>
+      </section>
+    </main>
+    <script src="blocked.js"></script>
+  </body>
+</html>
